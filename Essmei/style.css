@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap');
+
+
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    line-height: 1.3;
+    background-color: #f4f4f4;
+    color: #000;
+}
+
+
+
+header{
+    background-color: #000;
+    border-top: 5px solid #feea3a;
+    
+}
+
+
+/* apply the our flex styles to thr items inthe inner container which is .container and not header */
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+/* apply styles to the logo */
+header h1{
+    width: 75px;
+}
+
+/* remove the links default underline */
+a{
+    text-decoration: none;
+}
+
+
+/* make the width of the containers 960px and make it center and also add padding left and right of 
+the same value to ensure no breaks */
+.container{
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+/* styling hero */
+.hero{
+    background-image: url(./assets/hero.jpg);
+    padding-top: 110px;
+    padding-bottom: 120px;
+    background-size: cover;
+    background-position: right top;
+    background-repeat: no-repeat;
+}
+
+
+.hero .container .intro h2{
+    font-size: 36px;
+    line-height: 1.3;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+
+.hero .container .intro p{
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+/* give a width for the h2 and p so they can run down in 3 lines */
+.intro{
+    max-width: 440px; 
+}
+
+
+.filters{
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+
+.filters li{
+    display: inline;
+}
+
+
+.show-filters{
+    display: none;
+}
+
+/* for the show filters */
+.filters .show-filters{
+    color: #bfbfbf;
+}
+
+
+
+/* for the links itself */
+.filters a{
+    color: #000;
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+
+/* for the selected this is what is done , a font weight, border bottom and a poadding to created some
+space between the seleected text and the border bottom */
+.filters .selected{
+    font-weight: 700;
+    border-bottom: 3px solid #feea3a;
+    padding-bottom: 1px;
+}
+
+
+.products .container{
+    display: flex;
+    /* let it wrap to the next line */
+    flex-wrap: wrap;
+}
+
+
+/* relative so that the overlay latches on and only positions itself inside the product element
+otherwise it will position itself in position to the page */
+.product{
+    width: 33.333%;
+    position: relative;
+}
+
+.products img{
+    width: 100%;
+}
+
+
+.products{
+    margin-bottom: 60px;
+}
+
+/* overlay styles */
+/* hide overlay
+1.position overlay to cover the image
+2.slightly transparent yellow background
+3.psoition the title and the price inthe top and bottom left */
+
+.overlay{
+    opacity: 0;
+    position: absolute;
+    background-color: rgba(254, 234, 52, 0.7);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding: 15px;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product:hover .overlay{
+    opacity: 1;
+}
+
+
+.product h4, .product p{
+    font-weight: 700;
+}
+
+
+.product p{
+    font-size: 36px;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.product h4{
+    font-size: 19px;
+}
+
+
+/* responsiveness */
+/* for tablets of 870px */
+@media (max-width:870px){
+
+    .hero{
+        padding-top: 55px;
+        padding-bottom: 60px;
+    }
+
+    
+    .product{
+        width: 50%;
+    }
+
+
+    .container{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+
+@media (max-width:770px){
+
+    .hero{
+        background-image: none;
+        background-color: #bfbfbf;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+
+
+
+    .intro{
+        max-width: none;
+    }
+}
+
+
+@media (max-width:540px) {
+    .intro h2{
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+
+    .intro p{
+        font-size: 16px;
+    }
+
+
+    .container{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+
+    body{
+        font-size: 16px;
+    }
+
+
+    .product{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+
+    .filters li, .show-filters { 
+        display: block;
+    }
+
+    .filters li{
+        margin-bottom: 3px;
+    }
+
+    .show-filters{
+        margin-bottom: 5px;
+    }
+
+
+    .filters-list{
+        display: none;
+    }
+}
+
+
+
+
+@media (min-width: 480px){
+    .filters-list{
+        display: block !important;
+    }
+}
+
